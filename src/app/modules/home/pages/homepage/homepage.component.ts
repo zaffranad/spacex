@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { SpacexApiService } from 'src/app/shared/services/spacex-api.service';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {SpacexApiService} from 'src/app/core/services/spacex-api.service';
+import {Launch} from "../../../../core/model/launch";
 
 @Component({
   selector: 'app-homepage',
@@ -9,17 +10,16 @@ import { SpacexApiService } from 'src/app/shared/services/spacex-api.service';
 })
 export class HomepageComponent implements OnInit {
 
-  launches = [];
+  launches: Array<Launch> = [];
 
   constructor(
     private spacex: SpacexApiService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.spacex.getLaunches()
-      .subscribe((res: Array<any>) => {
-        this.launches = res;
-      });
+      .subscribe((res: Array<Launch>) => this.launches = res);
   }
 
 }

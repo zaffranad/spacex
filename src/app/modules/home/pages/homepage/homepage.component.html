@@ -1,6 +1,5 @@
-<p>homepage works!</p>
 
 
-<div *ngFor="let launch of launches">
-    {{launch.mission_name}} {{launch.launch_date_utc}}
+<div class="list-launches" *ngFor="let launch of launches">
+  <app-launch-card [launch]="launch"></app-launch-card>
 </div>

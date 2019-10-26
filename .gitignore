@@ -64,11 +64,11 @@ e2e/*.map
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
+*.iml
+*.ipr
 
 # CMake
 cmake-build-*/
@@ -223,4 +223,4 @@ public/
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/node,angular,intellij,visualstudiocode
+# End of https://www.gitignore.io/api/node,angular,intellij,visualstudiocod e
