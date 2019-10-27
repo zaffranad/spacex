@@ -1,3 +1,5 @@
+import { Rocket } from './rocket';
+
 export class Launch {
   constructor(
     public name: string,
@@ -5,7 +7,8 @@ export class Launch {
     public details: string,
     public success: boolean,
     public missionPatch: string,
-    public launchSite: string
+    public launchSite: string,
+    public rocket: Rocket
   ) {
 
   }

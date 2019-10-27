@@ -6,9 +6,11 @@
     <div class="title">
       <h3>{{launch.name}}</h3>
     </div>
-    <div class="description">
+    <div class="description" style="display: flex; flex-direction: column">
       <span>Details: {{launch.details}}</span>
       <span>Launch Site: {{launch.launchSite}}</span>
+      <span>Rocket id: {{launch.rocket.id}}</span>
+      <a routerLink="/rocket/{{launch.rocket.id}}" routerLinkActive="active"><span>Rocket name: {{launch.rocket.name}}</span></a>
     </div>
     <div class="footer"><span>Success: {{launch.success}}</span></div>
   </div>
