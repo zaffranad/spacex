@@ -4,20 +4,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { LaunchCardComponent } from './launch-card/launch-card.component';
 import { RouterModule } from '@angular/router';
 import { RocketCardComponent } from './rocket-card/rocket-card.component';
+import { LaunchFilterComponent } from './launch-filter/launch-filter.component';
+import { LaunchFilterPipe } from './launch-filter/pipes/launch-filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     LaunchCardComponent,
-    RocketCardComponent
+    RocketCardComponent,
+    LaunchFilterComponent,
+    LaunchFilterPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     LaunchCardComponent,
-    RocketCardComponent
+    RocketCardComponent,
+    LaunchFilterComponent,
+    LaunchFilterPipe
   ]
 })
 export class CoreModule {

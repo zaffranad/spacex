@@ -6,10 +6,10 @@ import { Rocket } from '../../../../core/model/rocket';
 
 @Component({
   selector: 'app-rocket-details',
-  templateUrl: './rocket-details.component.html',
-  styleUrls: ['./rocket-details.component.scss']
+  templateUrl: './rocket-page.component.html',
+  styleUrls: ['./rocket-page.component.scss']
 })
-export class RocketDetailsComponent implements OnInit {
+export class RocketPageComponent implements OnInit {
 
   @Input()
   rocket: Rocket;

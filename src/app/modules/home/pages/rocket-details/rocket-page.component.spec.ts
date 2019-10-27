@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RocketDetailsComponent } from './rocket-details.component';
+import { RocketPageComponent } from './rocket-page.component';
 
 describe('RocketDetailsComponent', () => {
-  let component: RocketDetailsComponent;
-  let fixture: ComponentFixture<RocketDetailsComponent>;
+  let component: RocketPageComponent;
+  let fixture: ComponentFixture<RocketPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RocketDetailsComponent ]
+      declarations: [ RocketPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RocketDetailsComponent);
+    fixture = TestBed.createComponent(RocketPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

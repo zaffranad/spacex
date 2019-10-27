@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './modules/home/pages/homepage/homepage.component';
-import { RocketDetailsComponent } from './modules/home/pages/rocket-details/rocket-details.component';
+import { RocketPageComponent } from './modules/home/pages/rocket-details/rocket-page.component';
 
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'rocket/:id', component: RocketDetailsComponent }
+  { path: 'rocket/:id', component: RocketPageComponent }
 ];
 
 @NgModule({

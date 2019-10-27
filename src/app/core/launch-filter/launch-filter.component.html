@@ -1,0 +1,17 @@
+<form id="launch-filter-form" #formulaire="ngForm">
+
+  <label for="name-filter">Mission Name</label>
+  <input
+  id="name-filter"
+  name="name-filter"
+  [(ngModel)]="filter.name"
+  >
+
+  <label for="any-text-filter">Any Text</label>
+  <input
+  id="any-text-filter"
+  name="any-text-filter"
+  [(ngModel)]="filter.anyText"
+  >
+
+</form>

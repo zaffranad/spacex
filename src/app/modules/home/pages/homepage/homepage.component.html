@@ -1,3 +1,4 @@
-<div class="list-launches">
-  <app-launch-card *ngFor="let launch of launches" [launch]="launch"></app-launch-card>
+<div class="centered-container">
+  <app-launch-filter (onFilterChange)="updateFilter($event)"></app-launch-filter>
+  <app-launch-card *ngFor="let launch of launches | launchFilter:filter" [launch]="launch"></app-launch-card>
 </div>
