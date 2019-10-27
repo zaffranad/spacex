@@ -223,4 +223,4 @@ public/
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/node,angular,intellij,visualstudiocod e
+# End of https://www.gitignore.io/api/node,angular,intellij,visualstudiocode

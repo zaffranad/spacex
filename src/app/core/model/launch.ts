@@ -3,7 +3,9 @@ export class Launch {
     public name: string,
     public date: string,
     public details: string,
-    public success: boolean
+    public success: boolean,
+    public missionPatch: string,
+    public launchSite: string
   ) {
 
   }

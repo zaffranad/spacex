@@ -13,7 +13,9 @@ export class SpacexApiUtils {
       spacexApiLaunch.mission_name,
       spacexApiLaunch.launch_date_utc,
       spacexApiLaunch.details,
-      spacexApiLaunch.launch_success
+      spacexApiLaunch.launch_success,
+      spacexApiLaunch.links.mission_patch,
+      spacexApiLaunch.launch_site.site_name_long
     );
   }
 }

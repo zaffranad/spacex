@@ -1,5 +1,16 @@
 <div class="card">
-  <div class="title"><span>{{launch.name}}</span><span>{{launch.date}}</span></div>
-  <div class="content"><span>{{launch.details}}</span></div>
-  <div class="footer"><span>Success: {{launch.success}}</span></div>
+  <div class="patch">
+    <img [src]="launch.missionPatch">
+  </div>
+  <div class="content">
+    <div class="title">
+      <h3>{{launch.name}}</h3>
+    </div>
+    <div class="description">
+      <span>Details: {{launch.details}}</span>
+      <span>Launch Site: {{launch.launchSite}}</span>
+    </div>
+    <div class="footer"><span>Success: {{launch.success}}</span></div>
+  </div>
 </div>
+
