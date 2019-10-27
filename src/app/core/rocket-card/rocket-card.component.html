@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="patch">
+    <img *ngIf="rocket && rocket.images" [src]="rocket.images[0]">
+  </div>
+  <div class="content">
+    <div class="title">
+      <h3>{{rocket.name}}</h3>
+    </div>
+    <div class="description" style="display: flex; flex-direction: column">
+      <span>Details: {{rocket.description}}</span>
+    </div>
+  </div>
+</div>
+

@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchCardComponent } from './launch-card/launch-card.component';
 import { RouterModule } from '@angular/router';
+import { RocketCardComponent } from './rocket-card/rocket-card.component';
 
 @NgModule({
   declarations: [
-    LaunchCardComponent
+    LaunchCardComponent,
+    RocketCardComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule
   ],
   exports: [
-    LaunchCardComponent
+    LaunchCardComponent,
+    RocketCardComponent
   ]
 })
 export class CoreModule {

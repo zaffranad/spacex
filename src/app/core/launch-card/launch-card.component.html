@@ -1,6 +1,6 @@
 <div class="card">
   <div class="patch">
-    <img [src]="launch.missionPatch">
+    <img *ngIf="launch && launch.missionPatch" [src]="launch.missionPatch">
   </div>
   <div class="content">
     <div class="title">
@@ -10,7 +10,7 @@
       <span>Details: {{launch.details}}</span>
       <span>Launch Site: {{launch.launchSite}}</span>
       <span>Rocket id: {{launch.rocket.id}}</span>
-      <a routerLink="/rocket/{{launch.rocket.id}}" routerLinkActive="active"><span>Rocket name: {{launch.rocket.name}}</span></a>
+      <a [routerLink]="['/rocket', launch.rocket.id]"><span>Rocket name: {{launch.rocket.name}}</span></a>
     </div>
     <div class="footer"><span>Success: {{launch.success}}</span></div>
   </div>
