@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { SpacexApiService } from 'src/app/core/services/spacex-api.service';
 import { CoreModule } from '../../core/core.module';
-import { LaunchCardComponent } from '../../core/launch-card/launch-card.component';
 import { RocketPageComponent } from './pages/rocket-details/rocket-page.component';
 
 @NgModule({

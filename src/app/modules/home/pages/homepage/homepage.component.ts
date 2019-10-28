@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SpacexApiService } from 'src/app/core/services/spacex-api.service';
 import { Launch } from '../../../../core/model/launch';
 import { LaunchFilter } from '../../../../core/launch-filter/pipes/launch-filter.pipe';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -14,13 +14,12 @@ export class HomepageComponent implements OnInit {
   filter: LaunchFilter = new LaunchFilter();
 
   constructor(
-    private spacex: SpacexApiService
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.spacex.getLaunches()
-      .subscribe((res: Array<Launch>) => this.launches = res);
+    this.launches = this.route.snapshot.data.launches;
   }
 
   updateFilter(filter: LaunchFilter) {
