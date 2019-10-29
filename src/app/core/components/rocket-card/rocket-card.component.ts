@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Rocket } from '../model/rocket';
+import { Rocket } from '../../model/rocket';
 
 @Component({
   selector: 'app-rocket-card',

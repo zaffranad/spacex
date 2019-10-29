@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Launch } from '../model/launch';
+import { Launch } from '../../model/launch';
 
 @Component({
   selector: 'app-launch-card',

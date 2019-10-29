@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Launch } from '../../model/launch';
+import { Launch } from '../../../model/launch';
 
 export class LaunchFilter {
   public name: string;
