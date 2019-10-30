@@ -1,25 +1,25 @@
 /* tslint:disable:variable-name */
-export class SpacexApiLaunch {
-  public mission_name: string;
-  public launch_date_utc: string;
-  public details: string;
-  public launch_success: boolean;
-  public links: Link;
-  public launch_site: LaunchSite;
-  public rocket: SpacexApiRocket;
+export interface SpacexApiLaunch {
+  mission_name: string;
+  launch_date_utc: string;
+  details: string;
+  launch_success: boolean;
+  links: Link;
+  launch_site: LaunchSite;
+  rocket: SpacexApiRocket;
 }
 
-export class SpacexApiRocket {
-  public rocket_id: string;
-  public rocket_name: string;
-  public description: string;
-  public flickr_images: Array<string>;
+export interface SpacexApiRocket {
+  rocket_id: string;
+  rocket_name: string;
+  description: string;
+  flickr_images: Array<string>;
 }
 
-class Link {
-  public mission_patch: string;
+interface Link {
+  mission_patch: string;
 }
 
-class LaunchSite {
-  public site_name_long: string;
+interface LaunchSite {
+  site_name_long: string;
 }
