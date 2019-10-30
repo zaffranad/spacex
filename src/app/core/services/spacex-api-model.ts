@@ -1,5 +1,5 @@
 /* tslint:disable:variable-name */
-export interface SpacexApiLaunch {
+export interface SpacexApiModel {
   mission_name: string;
   launch_date_utc: string;
   details: string;

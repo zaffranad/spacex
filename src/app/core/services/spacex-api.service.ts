@@ -2,8 +2,8 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import { SpacexApiLaunch, SpacexApiRocket } from './spacex-api-launch';
-import {SpacexApiUtils} from './spacex-api-utils';
+import { SpacexApiModel, SpacexApiRocket } from './spacex-api-model';
+import {SpacexApiBuilder} from './spacex-api-builder';
 import { Launch } from '../model/launch';
 import { Rocket } from '../model/rocket';
 
@@ -20,14 +20,14 @@ export class SpacexApiService {
   getLaunches(): Observable<Array<Launch>> {
     return this.http.get(this.ROOT + 'launches')
       .pipe(
-        map((response: Array<SpacexApiLaunch>) => SpacexApiUtils.buildLaunches(response))
+        map((response: Array<SpacexApiModel>) => SpacexApiBuilder.buildLaunches(response))
       );
   }
 
   getRocket(id: string): Observable<Rocket> {
     return this.http.get(this.ROOT + 'rockets/' + id)
       .pipe(
-        map((response: SpacexApiRocket) => SpacexApiUtils.buildRocket(response))
+        map((response: SpacexApiRocket) => SpacexApiBuilder.buildRocket(response))
       );
   }
 
