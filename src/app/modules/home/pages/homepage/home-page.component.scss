@@ -1,15 +1,37 @@
-.pagination{
+.pagination {
 
   display: flex;
   flex-direction: row;
-
+  max-width: 80%;
   .pagination-content {
     display: flex;
     flex-direction: column;
-    padding: 5px 20px
+    padding: 0 20px;
+
+    > div {
+      margin: 10px 0;
+    }
+
+    div:first-child{
+      margin-top: 0;
+    }
   }
 
-  .pagination-before .pagination-after{
-    max-width: 40px;
+  .pagination-before, .pagination-after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 10px;
+    padding: 1px 0;
+    cursor: pointer;
+    color: whitesmoke;
   }
+
+}
+
+.homepage {
+  background: #0F2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -28,7 +28,7 @@ export class SpacexApiService {
   }
 
   getLaunches(options: SpacesApiOptions): Observable<Array<Launch>> {
-    return this.http.get(this.ROOT + 'launches', {params: optionsToHttpParams(options)})
+    return this.http.get(this.ROOT + 'launches/past', {params: optionsToHttpParams(options)})
       .pipe(
         map((response: Array<SpacexApiModel>) => SpacexApiBuilder.buildLaunches(response))
       );
@@ -44,6 +44,7 @@ export class SpacexApiService {
 
 function optionsToHttpParams(options: SpacesApiOptions) {
   return new HttpParams()
+    .set('order', 'desc')
     .set('limit', String(options.paginationLimit))
     .set('offset', String(options.paginationOffset));
 }

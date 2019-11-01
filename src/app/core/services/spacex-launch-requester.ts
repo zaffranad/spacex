@@ -12,7 +12,7 @@ export class SpacexLaunchResquester {
   constructor(
     private service: SpacexApiService
   ) {
-    this.countByPage = 5;
+    this.countByPage = 3;
   }
 
   public fetchNext(): Observable<Array<Launch>> {
