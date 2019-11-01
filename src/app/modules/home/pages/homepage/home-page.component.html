@@ -1,4 +1,15 @@
 <div class="centered-container">
   <app-launch-filter (onFilterChange)="updateFilter($event)"></app-launch-filter>
-  <app-launch-card *ngFor="let launch of launches | launchFilter:filter" [launch]="launch"></app-launch-card>
+
+  <div class="pagination">
+    <div class="pagination-before">
+      <
+    </div>
+    <div class="pagination-content">
+      <app-launch-card *ngFor="let launch of launches | launchFilter:filter" [launch]="launch"></app-launch-card>
+    </div>
+    <div class="pagination-after">
+      >
+    </div>
+  </div>
 </div>

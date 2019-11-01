@@ -1,1 +1,15 @@
+.pagination{
 
+  display: flex;
+  flex-direction: row;
+
+  .pagination-content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px
+  }
+
+  .pagination-before .pagination-after{
+    max-width: 40px;
+  }
+}

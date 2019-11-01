@@ -13,7 +13,7 @@ export class HomepageResolver implements Resolve<Array<Launch>> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Array<Launch>> | Promise<Array<Launch>> | Array<Launch> {
-    return this.spacexApiService.getLaunches();
+    return this.spacexApiService.getLaunches({paginationLimit: 5, paginationOffset: 0});
   }
 
 }
