@@ -1,5 +1,6 @@
 /* tslint:disable:variable-name */
 export interface SpacexApiModel {
+  flight_number: string,
   mission_name: string;
   launch_date_utc: string;
   details: string;

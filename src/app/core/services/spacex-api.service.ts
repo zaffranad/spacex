@@ -6,6 +6,7 @@ import { SpacexApiModel, SpacexApiRocket } from './spacex-api-model';
 import { SpacexApiBuilder } from './spacex-api-builder';
 import { Launch } from '../model/launch';
 import { Rocket } from '../model/rocket';
+import { SpacexLaunchResquester } from './spacex-launch-requester';
 
 export interface SpacesApiOptions {
   paginationOffset: number;
@@ -21,6 +22,10 @@ export class SpacexApiService {
   }
 
   private readonly ROOT = 'https://api.spacexdata.com/v3/';
+
+  public getLaunchRequester(): SpacexLaunchResquester {
+    return new SpacexLaunchResquester(this);
+  }
 
   getLaunches(options: SpacesApiOptions): Observable<Array<Launch>> {
     return this.http.get(this.ROOT + 'launches', {params: optionsToHttpParams(options)})

@@ -2,13 +2,13 @@
   <app-launch-filter (onFilterChange)="updateFilter($event)"></app-launch-filter>
 
   <div class="pagination">
-    <div class="pagination-before">
+    <div class="pagination-before" (click)="retrievePrevious()">
       <
     </div>
     <div class="pagination-content">
       <app-launch-card *ngFor="let launch of launches | launchFilter:filter" [launch]="launch"></app-launch-card>
     </div>
-    <div class="pagination-after">
+    <div class="pagination-after" (click)="retrieveNext()">
       >
     </div>
   </div>

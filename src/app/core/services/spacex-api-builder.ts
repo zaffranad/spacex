@@ -10,6 +10,7 @@ export class SpacexApiBuilder {
 
   public static buildLaunch(spacexApiLaunch: SpacexApiModel): Launch {
     return new Launch(
+      spacexApiLaunch.flight_number,
       spacexApiLaunch.mission_name,
       spacexApiLaunch.launch_date_utc,
       spacexApiLaunch.details,

@@ -2,6 +2,7 @@ import { Rocket } from './rocket';
 
 export class Launch {
   constructor(
+    public id: string,
     public name: string,
     public date: string,
     public details: string,
