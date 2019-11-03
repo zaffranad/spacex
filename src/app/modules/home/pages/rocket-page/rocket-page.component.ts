@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Rocket } from '../../../../core/model/rocket';
+import { SxApiService } from '../../../../core/services/sx-api.service';
 
 @Component({
   selector: 'app-rocket-details',
@@ -13,12 +14,14 @@ export class RocketPageComponent implements OnInit {
   rocket: Rocket;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spacexApiService: SxApiService
   ) {
   }
 
   ngOnInit() {
-    this.rocket = this.route.snapshot.data.rocket;
+    this.spacexApiService.getRocket(this.route.snapshot.paramMap.get('id'))
+      .subscribe(r => this.rocket = r);
   }
 
 }

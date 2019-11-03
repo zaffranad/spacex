@@ -62,7 +62,7 @@ export class SxLaunchRequester {
   }
 
   private storeTotal() {
-    return (res) => this.total = res.total;
+    return (res: SxApiResponse<Launch>) => this.total = res.total;
   }
 
   private storeLaunches() {

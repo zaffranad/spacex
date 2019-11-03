@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RocketCardComponent } from './rocket-card.component';
+import { Observable, of } from 'rxjs';
+import { Rocket } from '../../model/rocket';
+import { SxApiService } from '../../services/sx-api.service';
 
 describe('RocketCardComponent', () => {
   let component: RocketCardComponent;
@@ -16,10 +19,11 @@ describe('RocketCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RocketCardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    component.rocket = new Rocket('1', 'ROCKIT');
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

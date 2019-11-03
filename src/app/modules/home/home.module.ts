@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HomePageComponent } from './pages/homepage/home-page.component';
 import { SxApiService } from 'src/app/core/services/sx-api.service';
 import { CoreModule } from '../../core/core.module';
-import { RocketPageComponent } from './pages/rocket-details/rocket-page.component';
+import { RocketPageComponent } from './pages/rocket-page/rocket-page.component';
 
 @NgModule({
   declarations: [

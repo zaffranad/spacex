@@ -10,13 +10,9 @@ describe('HomepageComponent', () => {
   let fixture: ComponentFixture<HomePageComponent>;
 
   beforeEach(async(() => {
-    const fakeActivatedRoute = {
-      snapshot: {data: {launchRequester: new SxLaunchRequester(null)}}
-    };
     TestBed.configureTestingModule({
       declarations: [HomePageComponent],
-      imports: [CoreModule, RouterModule],
-      providers: [{provide: ActivatedRoute, useValue: fakeActivatedRoute}]
+      imports: [CoreModule],
     })
       .compileComponents();
   }));

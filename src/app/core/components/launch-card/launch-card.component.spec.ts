@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LaunchCardComponent } from './launch-card.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Launch } from '../../model/launch';
+import { Rocket } from '../../model/rocket';
 
 describe('LaunchCardComponent', () => {
   let component: LaunchCardComponent;
@@ -8,18 +11,21 @@ describe('LaunchCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LaunchCardComponent ]
+      declarations: [LaunchCardComponent],
+      imports: [RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LaunchCardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    component.launch = new Launch();
+    component.launch.rocket = new Rocket();
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

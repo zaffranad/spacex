@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Launch } from '../../../../core/model/launch';
 import { ActivatedRoute } from '@angular/router';
 import { SxLaunchRequester } from '../../../../core/services/sx-launch-requester';
+import { SxApiService } from '../../../../core/services/sx-api.service';
 
 @Component({
   selector: 'app-homepage',
@@ -15,13 +16,14 @@ export class HomePageComponent implements OnInit {
   private launchRequester: SxLaunchRequester;
 
   constructor(
-    private route: ActivatedRoute
+    private spacexApiService: SxApiService
   ) {
   }
 
   ngOnInit() {
-    this.launchRequester = this.route.snapshot.data.launchRequester;
-    this.launches = this.launchRequester.launches;
+    this.launchRequester = this.spacexApiService.getLaunchRequester();
+    this.launchRequester.fetchNext()
+      .subscribe(launches => this.launches = launches);
   }
 
   retrieveNext() {
