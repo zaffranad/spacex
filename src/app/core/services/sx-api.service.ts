@@ -2,45 +2,32 @@ import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SpacexApiLaunch, SpacexApiRocket } from './spacex-api-launch';
-import { SpacexApiBuilder } from './spacex-api-builder';
+import { SxApiOptions, SxApiResponse, SxApiRocket } from './sx-api-launch';
+import { SxApiBuilder } from './sx-api-builder';
 import { Launch } from '../model/launch';
 import { Rocket } from '../model/rocket';
-import { SpacexLaunchResquester } from './spacex-launch-requester';
-
-export interface SpacesApiOptions {
-  paginationOffset: number;
-  paginationLimit: number;
-}
-
-export class SpacexApiResponse<T> {
-  constructor(
-    public total: number,
-    public items: Array<T>
-  ) {
-  }
-}
+import { SxLaunchRequester } from './sx-launch-requester';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SpacexApiService {
+export class SxApiService {
 
   constructor(private http: HttpClient) {
   }
 
   private readonly ROOT = 'https://api.spacexdata.com/v3/';
 
-  public getLaunchRequester(): SpacexLaunchResquester {
-    return new SpacexLaunchResquester(this);
+  public getLaunchRequester(): SxLaunchRequester {
+    return new SxLaunchRequester(this);
   }
 
-  getLaunches(options: SpacesApiOptions): Observable<SpacexApiResponse<Launch>> {
+  getLaunches(options: SxApiOptions): Observable<SxApiResponse<Launch>> {
     return this.http.get(this.ROOT + 'launches/past', {observe: 'response', params: optionsToHttpParams(options)})
       .pipe(
         map((response: HttpResponse<any>) => {
           const total = response.headers.get('spacex-api-count');
-          return new SpacexApiResponse<Launch>(Number(total), SpacexApiBuilder.buildLaunches(response.body));
+          return new SxApiResponse<Launch>(Number(total), SxApiBuilder.buildLaunches(response.body));
         })
       );
   }
@@ -48,12 +35,12 @@ export class SpacexApiService {
   getRocket(id: string): Observable<Rocket> {
     return this.http.get(this.ROOT + 'rockets/' + id)
       .pipe(
-        map((response: SpacexApiRocket) => SpacexApiBuilder.buildRocket(response))
+        map((response: SxApiRocket) => SxApiBuilder.buildRocket(response))
       );
   }
 }
 
-function optionsToHttpParams(options: SpacesApiOptions) {
+function optionsToHttpParams(options: SxApiOptions) {
   return new HttpParams()
     .set('order', 'desc')
     .set('limit', String(options.paginationLimit))

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Rocket } from '../../../../core/model/rocket';
-import { SpacexApiService } from '../../../../core/services/spacex-api.service';
+import { SxApiService } from '../../../../core/services/sx-api.service';
 import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class RocketResolver implements Resolve<Rocket> {
 
   constructor(
-    private spacexApiService: SpacexApiService
+    private spacexApiService: SxApiService
   ) {
   }
 

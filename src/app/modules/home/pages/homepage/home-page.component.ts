@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Launch } from '../../../../core/model/launch';
 import { ActivatedRoute } from '@angular/router';
-import { SpacexLaunchResquester } from '../../../../core/services/spacex-launch-requester';
+import { SxLaunchRequester } from '../../../../core/services/sx-launch-requester';
 
 @Component({
   selector: 'app-homepage',
@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   launches: Array<Launch> = [];
 
-  private launchRequester: SpacexLaunchResquester;
+  private launchRequester: SxLaunchRequester;
 
   constructor(
     private route: ActivatedRoute

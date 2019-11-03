@@ -1,9 +1,10 @@
 import { Launch } from '../model/launch';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { SpacexApiResponse, SpacexApiService } from './spacex-api.service';
+import { SxApiService } from './sx-api.service';
+import { SxApiResponse } from './sx-api-launch';
 
-export class SpacexLaunchResquester {
+export class SxLaunchRequester {
   private currentOffset: number;
   private totalPageNumber: number;
 
@@ -17,7 +18,7 @@ export class SpacexLaunchResquester {
   private readonly countByPage: number;
 
   constructor(
-    private service: SpacexApiService
+    private service: SxApiService
   ) {
     this.countByPage = 10;
   }
@@ -65,7 +66,7 @@ export class SpacexLaunchResquester {
   }
 
   private storeLaunches() {
-    return (res: SpacexApiResponse<Launch>) => this.launches = res.items;
+    return (res: SxApiResponse<Launch>) => this.launches = res.items;
   }
 
 }
