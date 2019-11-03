@@ -1,14 +1,14 @@
-import { SpacexApiModel, SpacexApiRocket } from './spacex-api-model';
+import { SpacexApiLaunch, SpacexApiRocket } from './spacex-api-launch';
 import { Launch } from '../model/launch';
 import { Rocket } from '../model/rocket';
 
 export class SpacexApiBuilder {
 
-  public static buildLaunches(spacexApiLaunches: Array<SpacexApiModel>): Array<Launch> {
+  public static buildLaunches(spacexApiLaunches: Array<SpacexApiLaunch>): Array<Launch> {
     return spacexApiLaunches.map(l => this.buildLaunch(l));
   }
 
-  public static buildLaunch(spacexApiLaunch: SpacexApiModel): Launch {
+  public static buildLaunch(spacexApiLaunch: SpacexApiLaunch): Launch {
     return new Launch(
       spacexApiLaunch.flight_number,
       spacexApiLaunch.mission_name,

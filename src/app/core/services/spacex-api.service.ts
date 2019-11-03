@@ -1,8 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SpacexApiModel, SpacexApiRocket } from './spacex-api-model';
+import { SpacexApiLaunch, SpacexApiRocket } from './spacex-api-launch';
 import { SpacexApiBuilder } from './spacex-api-builder';
 import { Launch } from '../model/launch';
 import { Rocket } from '../model/rocket';
@@ -11,6 +11,14 @@ import { SpacexLaunchResquester } from './spacex-launch-requester';
 export interface SpacesApiOptions {
   paginationOffset: number;
   paginationLimit: number;
+}
+
+export class SpacexApiResponse<T> {
+  constructor(
+    public total: number,
+    public items: Array<T>
+  ) {
+  }
 }
 
 @Injectable({
@@ -27,10 +35,13 @@ export class SpacexApiService {
     return new SpacexLaunchResquester(this);
   }
 
-  getLaunches(options: SpacesApiOptions): Observable<Array<Launch>> {
-    return this.http.get(this.ROOT + 'launches/past', {params: optionsToHttpParams(options)})
+  getLaunches(options: SpacesApiOptions): Observable<SpacexApiResponse<Launch>> {
+    return this.http.get(this.ROOT + 'launches/past', {observe: 'response', params: optionsToHttpParams(options)})
       .pipe(
-        map((response: Array<SpacexApiModel>) => SpacexApiBuilder.buildLaunches(response))
+        map((response: HttpResponse<any>) => {
+          const total = response.headers.get('spacex-api-count');
+          return new SpacexApiResponse<Launch>(Number(total), SpacexApiBuilder.buildLaunches(response.body));
+        })
       );
   }
 

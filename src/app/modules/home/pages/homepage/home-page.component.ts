@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Launch } from '../../../../core/model/launch';
-import { LaunchFilter } from '../../../../core/components/launch-filter/pipes/launch-filter.pipe';
 import { ActivatedRoute } from '@angular/router';
 import { SpacexLaunchResquester } from '../../../../core/services/spacex-launch-requester';
 
@@ -12,7 +11,6 @@ import { SpacexLaunchResquester } from '../../../../core/services/spacex-launch-
 export class HomePageComponent implements OnInit {
 
   launches: Array<Launch> = [];
-  filter: LaunchFilter = new LaunchFilter();
   private launchRequester: SpacexLaunchResquester;
 
   constructor(
@@ -22,11 +20,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.launchRequester = this.route.snapshot.data.launchRequester;
-    this.launches = this.launchRequester.getLaunchesRetrieved();
-  }
-
-  updateFilter(filter: LaunchFilter) {
-    this.filter = filter;
+    this.launches = this.launchRequester.launches;
   }
 
   retrieveNext() {

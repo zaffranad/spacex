@@ -1,11 +1,14 @@
 import { Launch } from '../model/launch';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { SpacexApiService } from './spacex-api.service';
+import { map, tap } from 'rxjs/operators';
+import { SpacexApiResponse, SpacexApiService } from './spacex-api.service';
 
 export class SpacexLaunchResquester {
   private currentOffset: number;
-  private launches: Array<Launch>;
+  launches: Array<Launch>;
+  total: number;
+  currentPage: number;
+  totalPageNumber: number;
 
   private readonly countByPage: number;
 
@@ -19,24 +22,38 @@ export class SpacexLaunchResquester {
     const newOffset = this.currentOffset == null ? 0 : this.currentOffset + this.countByPage;
     return this.service.getLaunches({paginationOffset: newOffset, paginationLimit: this.countByPage})
       .pipe(
-        tap((launches) => this.launches = launches),
-        tap(() => this.currentOffset = newOffset),
-        tap(() => console.log(this.currentOffset))
+        tap(this.storeTotal()),
+        map(this.storeLaunches()),
+        tap(this.storeNewOffset(newOffset)),
+        tap(() => {
+          this.totalPageNumber = Math.round(this.total / this.countByPage);
+          this.currentPage = Math.round(this.totalPageNumber / (this.totalPageNumber - (this.currentOffset + 1)));
+        })
       );
   }
 
   public fetchPrevious(): Observable<Array<Launch>> {
-    const newPaginationOffset = this.currentOffset - this.countByPage;
+    const newOffset = this.currentOffset - this.countByPage;
     return this.service.getLaunches({
-      paginationOffset: newPaginationOffset,
+      paginationOffset: newOffset,
       paginationLimit: this.countByPage
     }).pipe(
-      tap((launches) => this.launches = launches),
-      tap(() => this.currentOffset = newPaginationOffset)
+      tap(this.storeTotal()),
+      map(this.storeLaunches()),
+      tap(this.storeNewOffset(newOffset))
     );
   }
 
-  getLaunchesRetrieved(): Array<Launch> {
-    return this.launches;
+  private storeTotal() {
+    return (res) => this.total = res.total;
   }
+
+  private storeNewOffset(newOffset) {
+    return () => this.currentOffset = newOffset;
+  }
+
+  private storeLaunches() {
+    return (res: SpacexApiResponse<Launch>) => this.launches = res.items;
+  }
+
 }

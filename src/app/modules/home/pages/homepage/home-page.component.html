@@ -1,12 +1,14 @@
-<div class="centered-container homepage">
-  <app-launch-filter (onFilterChange)="updateFilter($event)"></app-launch-filter>
+<div class="centered-container">
+  <h1>Past Launches ({{launchRequester.total}})</h1>
 
   <div class="pagination">
     <div class="pagination-before" (click)="retrievePrevious()">
       <<<
     </div>
     <div class="pagination-content">
-      <div *ngFor="let launch of launches | launchFilter:filter">
+      {{launchRequester.totalPageNumber}}
+      {{launchRequester.currentPage}}
+      <div *ngFor="let launch of launches">
         <app-launch-card [launch]="launch"></app-launch-card>
       </div>
     </div>
