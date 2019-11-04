@@ -7,6 +7,7 @@
 # compiled output
 dist/
 tmp/
+out-tsc/
 app/**/*.js
 app/**/*.js.map
 
@@ -197,7 +198,7 @@ jspm_packages/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
+# react / gatsby
 public/
 
 # vuepress build output

@@ -1,21 +1,27 @@
 <div class="card">
   <div class="patch">
-    <img *ngIf="launch && launch.missionPatch" [src]="launch.missionPatch" (error)="setFallbackImageForPatch()" >
+    <img *ngIf="launch && launch.missionPatch" [src]="launch.missionPatch" (error)="setFallbackImageForPatch()">
   </div>
   <div class="content">
-    <div class="title">
-      <h3>{{launch.name}}</h3>
-    </div>
     <div class="description">
-      <span>Details: {{launch.details}}</span>
-      <span>Launch Site: {{launch.launchSite}}</span>
+      <h3>{{launch.name}}</h3>
+      <span>{{launch.details}}</span>
     </div>
     <div class="rocket">
-      <a [routerLink]="['/rocket', launch.rocket.id]">
-        <img [title]="launch.rocket.name" [src]="launch.missionPatch" (error)="setFallbackImageForRocket()" >
-      </a>
+      <h4>Rocket</h4>
+      <ul>
+        <li><span><a [routerLink]="['/rocket', launch.rocket.id]">{{launch.rocket.name}}</a></span></li>
+      </ul>
     </div>
-    <div class="footer"><span>Success: {{launch.success}}</span></div>
+    <div class="pics">
+      <h4>Pics</h4>
+      <div class="pics-ruban">
+        <div class="pic" *ngFor="let pic of launch.pics | slice: 0:10">
+          <a [href]="pic" target="_blank"> <img [src]="pic"/></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
   </div>
 </div>
 

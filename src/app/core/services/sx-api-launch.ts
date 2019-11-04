@@ -18,6 +18,7 @@ export interface SxApiRocket {
 }
 
 interface SxLink {
+  flickr_images: Array<string>;
   mission_patch: string;
 }
 

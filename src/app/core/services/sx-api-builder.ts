@@ -9,6 +9,8 @@ export class SxApiBuilder {
   }
 
   public static buildLaunch(sxLaunch: SxApiLaunch): Launch {
+    console.log(sxLaunch);
+
     return new Launch(
       sxLaunch.flight_number,
       sxLaunch.mission_name,
@@ -17,6 +19,7 @@ export class SxApiBuilder {
       sxLaunch.launch_success,
       sxLaunch.links.mission_patch,
       sxLaunch.launch_site.site_name_long,
+      sxLaunch.links.flickr_images,
       new Rocket(
         sxLaunch.rocket.rocket_id,
         sxLaunch.rocket.rocket_name

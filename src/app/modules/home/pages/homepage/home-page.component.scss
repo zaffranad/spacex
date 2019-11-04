@@ -13,7 +13,7 @@
       margin: 10px 0;
     }
 
-    div:first-child{
+    div:first-child {
       margin-top: 0;
     }
   }
@@ -26,10 +26,10 @@
     height: 10px;
     padding: 1px 0;
     cursor: pointer;
-    color: whitesmoke;
+    color: black;
   }
 
-  .pagination-pages{
+  .pagination-pages {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,14 +40,13 @@
     }
   }
 
-  .current-page{
-    color:yellow;
+  .current-page {
     font-size: x-large;
   }
 
-  .disabled{
+  .disabled {
     cursor: default;
-    color: grey;
+    color: lightgray;
   }
 
 }
