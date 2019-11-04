@@ -1,17 +1,19 @@
 <div class="card">
   <div class="patch">
-    <img *ngIf="launch && launch.missionPatch" [src]="launch.missionPatch">
+    <img *ngIf="launch && launch.missionPatch" [src]="launch.missionPatch" (error)="setFallbackImageForPatch()" >
   </div>
   <div class="content">
     <div class="title">
       <h3>{{launch.name}}</h3>
     </div>
     <div class="description">
-      <span>Id: {{launch.id}}</span>
       <span>Details: {{launch.details}}</span>
       <span>Launch Site: {{launch.launchSite}}</span>
-      <span>Rocket id: {{launch.rocket.id}}</span>
-      <a [routerLink]="['/rocket', launch.rocket.id]"><span>Rocket name: {{launch.rocket.name}}</span></a>
+    </div>
+    <div class="rocket">
+      <a [routerLink]="['/rocket', launch.rocket.id]">
+        <img [title]="launch.rocket.name" [src]="launch.missionPatch" (error)="setFallbackImageForRocket()" >
+      </a>
     </div>
     <div class="footer"><span>Success: {{launch.success}}</span></div>
   </div>

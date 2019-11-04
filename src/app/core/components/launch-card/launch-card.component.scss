@@ -1,5 +1,5 @@
 $header-height: 50px;
-$description-height: 70%;
+$description-height: 40%;
 $card-width: 100%;
 $card-height: 300px;
 
@@ -12,10 +12,6 @@ $card-height: 300px;
     padding: 3px 10px;
   }
 
-  .title, .description {
-    border-bottom: 1px solid white;
-  }
-
   .title {
     height: $header-height;
   }
@@ -26,6 +22,10 @@ $card-height: 300px;
     height: $description-height;
     overflow: hidden;
     overflow-y: scroll;
+  }
+
+  .rocket{
+    padding: 5px;
   }
 }
 
@@ -40,6 +40,12 @@ $card-height: 300px;
       width: 200px;
     }
   }
+
+  .rocket{
+    img{
+      width: 20%;
+    }
+  }
 }
 
 @media screen and (max-width: 599px) {
@@ -51,6 +57,12 @@ $card-height: 300px;
     img {
       padding: 10px;
       width: 70px;
+    }
+  }
+
+  .rocket{
+    img{
+      width: 20%;
     }
   }
 }

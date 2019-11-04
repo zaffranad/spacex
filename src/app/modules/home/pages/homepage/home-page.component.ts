@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Launch } from '../../../../core/model/launch';
-import { ActivatedRoute } from '@angular/router';
-import { SxLaunchRequester } from '../../../../core/services/sx-launch-requester';
-import { SxApiService } from '../../../../core/services/sx-api.service';
+import {Component, OnInit} from '@angular/core';
+import {Launch} from '../../../../core/model/launch';
+import {SxLaunchRequester} from '../../../../core/services/sx-launch-requester';
+import {SxApiService} from '../../../../core/services/sx-api.service';
 
 @Component({
   selector: 'app-homepage',
