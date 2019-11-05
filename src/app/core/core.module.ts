@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { RocketCardComponent } from './components/rocket-card/rocket-card.component';
 import { FormsModule } from '@angular/forms';
 import { PaginationControlsComponent } from './components/pagination-controls/pagination-controls.component';
+import { PicsRubanComponent } from './components/pics-ruban/pics-ruban.component';
 
 @NgModule({
   declarations: [
     LaunchCardComponent,
     RocketCardComponent,
-    PaginationControlsComponent
+    PaginationControlsComponent,
+    PicsRubanComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { PaginationControlsComponent } from './components/pagination-controls/pa
   exports: [
     LaunchCardComponent,
     RocketCardComponent,
-    PaginationControlsComponent
+    PaginationControlsComponent,
+    PicsRubanComponent
   ]
 })
 export class CoreModule {

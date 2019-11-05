@@ -1,0 +1,5 @@
+<div class="pics-ruban">
+  <div class="pic" *ngFor="let pic of pics | slice: 0:max">
+    <a [href]="pic" target="_blank"> <img [src]="pic"/></a>
+  </div>
+</div>

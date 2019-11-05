@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Launch } from '../../model/launch';
-import {PictureService} from '../../services/tools/picture.service';
+import { PictureService } from '../../services/tools/picture.service';
 
 @Component({
   selector: 'app-launch-card',
@@ -12,17 +12,15 @@ export class LaunchCardComponent {
   @Input()
   launch: Launch;
 
+  showAllDescription = false;
+
   constructor(
     private pictureService: PictureService
-
   ) {
   }
 
   setFallbackImageForPatch() {
     this.launch.missionPatch = this.pictureService.getRandomPictureUrl();
   }
-  setFallbackImageForRocket() {
-    this.launch.rocket.images = this.launch.rocket.images || [];
-    this.launch.rocket.images.push(this.pictureService.getRandomPictureUrl());
-  }
+
 }

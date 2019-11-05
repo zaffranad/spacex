@@ -5,21 +5,32 @@
   <div class="content">
     <div class="description">
       <h3>{{launch.name}}</h3>
-      <span>{{launch.details}}</span>
+      <div [ngClass]="showAllDescription ? 'expanded': 'minimized'" (click)="showAllDescription = !showAllDescription">
+        <span>{{launch.details}}</span>
+      </div>
+      <span class="click-to-expand" *ngIf="!showAllDescription">(click to expand)</span>
     </div>
-    <div class="rocket">
-      <h4>Rocket</h4>
-      <ul>
-        <li><span><a [routerLink]="['/rocket', launch.rocket.id]">{{launch.rocket.name}}</a></span></li>
-      </ul>
+    <div class="details">
+      <table>
+        <tbody>
+        <tr>
+          <td>Launch Site:</td>
+          <td>{{launch.launchSite}}</td>
+        </tr>
+        <tr>
+          <td>Launch Date:</td>
+          <td>{{launch.date}}</td>
+        </tr>
+        <tr>
+          <td>Rocket:</td>
+          <td><a [routerLink]="['/rocket', launch.rocket.id]">{{launch.rocket.name}}</a></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <div class="pics">
       <h4>Pics</h4>
-      <div class="pics-ruban">
-        <div class="pic" *ngFor="let pic of launch.pics | slice: 0:10">
-          <a [href]="pic" target="_blank"> <img [src]="pic"/></a>
-        </div>
-      </div>
+      <app-pics-ruban [pics]="launch.pics" [max]="10"></app-pics-ruban>
     </div>
     <div class="footer"></div>
   </div>

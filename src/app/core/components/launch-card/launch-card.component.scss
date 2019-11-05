@@ -1,7 +1,7 @@
 $header-height: 50px;
 $description-height: 35%;
 $pics-height: 40%;
-$card-height: 650px;
+$card-height: auto;
 
 .card {
   display: flex;
@@ -28,7 +28,7 @@ $card-height: 650px;
     background-color: black;
     color: whitesmoke;
 
-    .title, .description, .rocket, .pics {
+    .title, .description, .details, .pics {
       padding: 3px 20px;
     }
 
@@ -39,55 +39,47 @@ $card-height: 650px;
     .description {
       display: flex;
       flex-direction: column;
-      height: $description-height;
       overflow: hidden;
       text-align: justify;
+      cursor: pointer;
     }
 
-    .rocket{
-      display: flex;
-      flex-direction: column;
-      height: 20%;
-      ul{
-        list-style-type: none;
-      }
+    .minimized {
+      height: 1em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 969px;
+      display: inline-block;
     }
 
-    .pics{
+    .click-to-expand{
+      font-style: italic;
+    }
+
+    .expanded {
+      height: auto;
+    }
+
+    .details {
+      padding-top: 20px;
       display: flex;
       flex-direction: column;
-      height: 30%;
-      .pics-ruban{
-        display: flex;
-        flex-direction: row;
-        .pic{
-          display: flex;
-          flex-direction: row;
-          flex-grow: 1;
-          flex-basis: 0;
-          a {
-            display: flex;
-            flex-direction: row;
-            flex-grow: 1;
-            flex-basis: 0;
-            img {
-              width: 100%;
-              height: auto;
-              object-fit: cover;
-            }
-          }
-        }
-      }
+    }
+
+    .pics {
+      display: flex;
+      flex-direction: column;
     }
   }
 }
 
 
-
 @media screen and (max-width: 599px) {
   .card {
     height: $card-height - 100;
-    .patch{
+
+    .patch {
       width: $card-height - 100;
     }
   }
