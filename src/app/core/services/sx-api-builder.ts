@@ -9,8 +9,6 @@ export class SxApiBuilder {
   }
 
   public static buildLaunch(sxLaunch: SxApiLaunch): Launch {
-    console.log(sxLaunch);
-
     return new Launch(
       sxLaunch.flight_number,
       sxLaunch.mission_name,

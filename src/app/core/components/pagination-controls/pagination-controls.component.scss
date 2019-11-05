@@ -1,0 +1,37 @@
+.pagination-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .pagination-pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      margin: 2px;
+      cursor: pointer;
+    }
+  }
+
+  .pagination-before, .pagination-after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 10px;
+    padding: 1px 0;
+    cursor: pointer;
+    color: black;
+  }
+
+  .current-page {
+    font-size: x-large;
+  }
+
+  .disabled {
+    cursor: default;
+    color: lightgray;
+  }
+}

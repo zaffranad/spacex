@@ -1,0 +1,13 @@
+<div class="pagination-controls">
+  <div class="pagination-before" (click)="retrievePrevious()" [ngClass]="isFirstPage() ? 'disabled' : ''">
+    <<<
+  </div>
+  <div class="pagination-pages">
+  <span *ngFor="let pageNumber of pages;" [ngClass]="pageNumber === currentPage ? 'current-page' : ''" (click)="onLoadPage(pageNumber)">
+    {{pageNumber}}
+  </span>
+  </div>
+  <div class="pagination-after" (click)="retrieveNext()" [ngClass]="isLastPage() ? 'disabled' : ''">
+    >>>
+  </div>
+</div>

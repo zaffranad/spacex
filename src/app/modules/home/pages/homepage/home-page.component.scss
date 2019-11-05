@@ -1,7 +1,7 @@
 .pagination {
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 80%;
 
   .pagination-content {
@@ -16,37 +16,6 @@
     div:first-child {
       margin-top: 0;
     }
-  }
-
-  .pagination-before, .pagination-after {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 10px;
-    padding: 1px 0;
-    cursor: pointer;
-    color: black;
-  }
-
-  .pagination-pages {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    span {
-      margin: 2px;
-      cursor: pointer;
-    }
-  }
-
-  .current-page {
-    font-size: x-large;
-  }
-
-  .disabled {
-    cursor: default;
-    color: lightgray;
   }
 
 }

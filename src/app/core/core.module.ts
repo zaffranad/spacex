@@ -5,11 +5,13 @@ import { LaunchCardComponent } from './components/launch-card/launch-card.compon
 import { RouterModule } from '@angular/router';
 import { RocketCardComponent } from './components/rocket-card/rocket-card.component';
 import { FormsModule } from '@angular/forms';
+import { PaginationControlsComponent } from './components/pagination-controls/pagination-controls.component';
 
 @NgModule({
   declarations: [
     LaunchCardComponent,
-    RocketCardComponent
+    RocketCardComponent,
+    PaginationControlsComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     LaunchCardComponent,
-    RocketCardComponent
+    RocketCardComponent,
+    PaginationControlsComponent
   ]
 })
 export class CoreModule {

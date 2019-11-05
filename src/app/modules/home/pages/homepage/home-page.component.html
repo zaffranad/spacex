@@ -2,29 +2,13 @@
   <h1>Past Launches ({{launchRequester.total}})</h1>
 
   <div class="pagination">
-    <div class="pagination-before"
-         (click)="retrievePrevious()"
-         [ngClass]="launchRequester.isFirstPage ? 'disabled' : ''">
-      <<<
+    <div class="pagination-controls">
+      <app-pagination-controls [currentPage]="launchRequester.currentPage" [pages]="launchRequester.pages" (onNext)="retrieveNext()" (onPrevious)="retrievePrevious()" (onPageChoice)="loadPage($event)"></app-pagination-controls>
     </div>
     <div class="pagination-content">
-
-      <div class="pagination-pages">
-        <span *ngFor="let pageNumber of launchRequester.pages;"
-              [ngClass]="pageNumber === launchRequester.currentPage ? 'current-page' : ''"
-              (click)="loadPage(pageNumber)">
-          {{pageNumber}}
-        </span>
-      </div>
-
       <div *ngFor="let launch of launches">
         <app-launch-card [launch]="launch"></app-launch-card>
       </div>
-    </div>
-    <div class="pagination-after"
-         (click)="retrieveNext()"
-         [ngClass]="launchRequester.isLastPage ? 'disabled' : ''">
-      >>>
     </div>
   </div>
 </div>
