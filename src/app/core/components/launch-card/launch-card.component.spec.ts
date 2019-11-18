@@ -1,9 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LaunchCardComponent } from './launch-card.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { Launch } from '../../model/launch';
-import { Rocket } from '../../model/rocket';
+import {LaunchCardComponent} from './launch-card.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {Launch} from '../../model/launch';
+import {Rocket} from '../../model/rocket';
+import {PicsRubanComponent} from '../pics-ruban/pics-ruban.component';
 
 describe('LaunchCardComponent', () => {
   let component: LaunchCardComponent;
@@ -11,7 +12,7 @@ describe('LaunchCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LaunchCardComponent],
+      declarations: [LaunchCardComponent, PicsRubanComponent],
       imports: [RouterTestingModule]
     })
       .compileComponents();
